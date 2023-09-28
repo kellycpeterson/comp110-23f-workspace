@@ -56,7 +56,7 @@ def emojified(word: str, secret: str) -> str:
 def main() -> None: 
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
-    step_1: str = input_guess(len(secret))
+    step_1: str = "Take a guess"
     step_2: int = 1
     while (step_1 != secret and step_2 < 6): 
         step_1 = input_guess(len(secret))
