@@ -1,4 +1,4 @@
-"""Game is similar to Wordle, but you have one guess"""
+"""Game is similar to Wordle, but you have one guess."""
 __author__: str = "730701948"
 
 # word - guess
@@ -12,7 +12,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 # def fun_name(var: int)-> return_type:
 def contains_char(word: str, letter: str) -> bool:
     """Finds a letter in a word."""
-    assert len(letter) == 1
+    assert len (letter) == 1
     in_word: bool = False
     secret_letters: int = 0
     # while not in secret and not reached end of secret
@@ -25,21 +25,21 @@ def contains_char(word: str, letter: str) -> bool:
 
 
 # Repeat until len == 6
-def input_guess(length: int) -> str: 
+def input_guess(length: int) -> str:
+    """Input guess and have it checked.""" 
     word: str = input(f"What is your {length}-letter guess? ")
-    while(len(word)) != length:
+    while len(word) != length:
         word = input(f"That was not {length} letters! Try again:")
     return word
 
 
 # put emojis in
 def emojified(word: str, secret: str) -> str:
-    """Add boxes""" 
+    """Add boxes.""" 
     assert len(word) == len(secret)
     num_of_matches: int = 0
     emoji_count: str = ""
     while num_of_matches <= len(secret) - 1:
-    # if word at matches == secret at matches, add green
         if word[num_of_matches] == secret[num_of_matches]:
             emoji_count = emoji_count + GREEN_BOX
             num_of_matches = num_of_matches + 1
@@ -53,11 +53,12 @@ def emojified(word: str, secret: str) -> str:
     return emoji_count 
 
 
-def main () -> None: 
+def main() -> None: 
+    """The entrypoint of the program and main game loop."""
     secret: str = "codes"
     step_1: str = input_guess(len(secret))
     step_2: int = 1
-    while(step_1 != secret and step_2 <= 6): 
+    while (step_1 != secret and step_2 < 6): 
         step_1 = input_guess(len(secret))
         print(emojified(step_1, secret))
         step_2 = step_2 + 1
